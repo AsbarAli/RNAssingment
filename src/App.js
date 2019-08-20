@@ -23,8 +23,13 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { postActions } from "./storage/realm";
 
 const App = () => {
+  console.log('***')
+  const post = {id: 1, title: 'title', description: 'description'};
+  postActions.createPosts(post)
+  console.log('postActions.getPosts()', postActions.getPosts())
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
