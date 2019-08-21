@@ -1,8 +1,8 @@
 // @flow
 import Realm from 'realm';
 
-import Post from "./models/Post";
-import createPostActions from "./actions/Post";
+import Post from './models/Post';
+import createPostActions from './actions/Post';
 import type {PostActionsInterface} from './actions/Post';
 
 const realmInstance = new Realm({

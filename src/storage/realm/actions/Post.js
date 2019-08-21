@@ -1,6 +1,6 @@
 // @flow
 import Post from '../models/Post';
-import type {PostTypeInterface} from "./models/Post";
+import type {PostTypeInterface} from './models/Post';
 
 /**
  * Flow type of Post actions
@@ -18,20 +18,19 @@ export type PostActionsInterface = {
  */
 export default (realmInstance: any): any => {
   return {
-     /**
+    /**
      * Create posts
-     * @param  {any}                           postResponse  Post response from server
-     * @return {Promise<PostTypeInterface>}                  Created post object
+     * @param  {any} post                             Post response from server
+     * @return {Promise<PostTypeInterface>}           Created post object
      */
     createPosts: (post: Post): Promise<any> => {
       return new Promise((resolve, reject) => {
         try {
           realmInstance.write(() => {
             const createdPost: Post = realmInstance.create(Post.get(), post, true);
-            console.log('createdPost', createdPost)
+            console.log('createdPost', createdPost);
             resolve(createdPost);
           });
-     
         } catch (err) {
           reject(err);
         }
@@ -43,8 +42,8 @@ export default (realmInstance: any): any => {
       * @return {PostTypeInterface}
      */
     getPosts: (): PostTypeInterface<any> => {
-          return realmInstance
-            .objects(Post.get());
+      return realmInstance
+        .objects(Post.get());
     },
   };
 };
