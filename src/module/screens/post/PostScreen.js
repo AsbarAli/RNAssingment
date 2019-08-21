@@ -28,7 +28,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
           onPress={this.handleButtonPress}
           title="Click Me"
         />
-        <Text>Post screen</Text>
+        <Text testID="welcome">Post screen</Text>
       </View>
     );
   }

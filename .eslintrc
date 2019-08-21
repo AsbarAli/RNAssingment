@@ -7,13 +7,15 @@
     "react",
     "babel",
     "react-native",
-    "jest"
+    "jest",
+    "detox"
   ],
   "env": {
     "es6": true,
     "node": true,
     "browser": true,
-    "jest": true
+    "jest": true,
+    "detox/detox": true 
   },
   "ecmaFeatures": {
     "jsx": true,
