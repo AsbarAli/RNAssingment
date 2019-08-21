@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "35F6B0CA3DE07910A1971A28234AC505"
-               BlueprintName = "yoga"
+               BlueprintIdentifier = "911BBEA064171546C989AAAC655180B5"
+               BlueprintName = "react-native-config"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libyoga.a">
+               BuildableName = "libreact-native-config.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
