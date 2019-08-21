@@ -8,17 +8,22 @@
 
 import React from 'react';
 import {
-  View,
+  SafeAreaView,
 } from 'react-native';
 
 import RootNavigation from '../src/navigation/root';
 import {postActions} from './storage/realm';
 import Config from 'react-native-config';
+import {Provider} from 'react-redux';
+import {Store} from 'redux';
+import configureStore from './store/ConfigureStore';
 
 import styles from './App.styles';
-import {setBaseURL} from '../android/app/api/RestService';
+import {setBaseURL} from './api/RestService';
 
 setBaseURL(Config.BASE_URL);
+
+const store: Store = configureStore();
 
 const App = () => {
   console.log('Config.BASE_URL', Config.BASE_URL);
@@ -27,9 +32,11 @@ const App = () => {
   console.log('postActions.getPosts()', postActions.getPosts());
 
   return (
-    <View style={styles.container}>
-      <RootNavigation />
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <RootNavigation />
+      </SafeAreaView>
+    </Provider>
   );
 };
 
