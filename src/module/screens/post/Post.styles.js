@@ -19,6 +19,14 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  loadingLabel: {
+    alignSelf: 'center',
+    paddingTop: 10,
+  },
+  loadingWrapperSmall: {
+    flex: 11,
+    justifyContent: 'center',
+  },
 });
 
 export default style;

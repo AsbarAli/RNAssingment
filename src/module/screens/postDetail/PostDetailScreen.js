@@ -1,11 +1,12 @@
 // @flow
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import type {Element as ReactElement} from 'react';
 
 import styles from './PostDetail.styles';
+import {navigateToPhoto} from '../../../navigation/root/Actions';
 
 type PostDetailProps = {};
 type PostDetailState = {};
@@ -15,6 +16,10 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
 
   constructor(props: PostDetailProps) {
     super(props);
+  }
+
+  handleThumbnail = () => {
+    navigateToPhoto();
   }
 
   renderPostDetail = () => {
@@ -29,10 +34,20 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     );
   }
 
+  renderGridLayout = () => {
+    return (
+      <Button
+        onPress={this.handleThumbnail}
+        title="Go full"
+      />
+    );
+  }
+
   renderContent = (): ReactElement<any> => {
     return (
       <View style={styles.container}>
         {this.renderPostDetail()}
+        {this.renderGridLayout()}
       </View>
     );
   }

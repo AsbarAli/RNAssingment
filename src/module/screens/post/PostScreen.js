@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import {View, Text, FlatList, RefreshControl} from 'react-native';
+import {View, Text, FlatList, RefreshControl, ActivityIndicator} from 'react-native';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import type {Element as ReactElement} from 'react';
@@ -45,7 +45,19 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
 
   _keyExtractor = (item, index) => index.toString();
 
-  renderContent = (): ReactElement<any> => {
+  renderSimpleLoadingIndicator = () => {
+    return (
+      <View style={styles.loadingWrapperSmall}>
+        <ActivityIndicator
+          color={colors.coolBlue}
+          size="large"
+        />
+        <Text style={styles.loadingLabel}>Loading from server..</Text>
+      </View>
+    );
+  }
+
+  renderFlatList = () => {
     const refreshControl = (
       <RefreshControl
         colors={[colors.coolBlue]}
@@ -54,6 +66,23 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
         tintColor={colors.coolBlue}
       />
     );
+
+    return (
+      <View style={styles.flatListWrapper}>
+        <FlatList
+          data={this.props.postList}
+          keyExtractor={this._keyExtractor}
+          refreshControl={refreshControl}
+          renderItem={this.renderItem}
+        />
+      </View>
+    );
+  }
+
+  renderContent = (): ReactElement<any> => {
+    const {getPostListLoading} = this.props;
+
+    const renderElement = getPostListLoading ? this.renderSimpleLoadingIndicator() : this.renderFlatList();
 
     return (
       <View style={styles.container}>
@@ -65,14 +94,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
             {ALL_100_POSTS}
           </Text>
         </View>
-        <View style={styles.flatListWrapper}>
-          <FlatList
-            data={this.props.postList}
-            keyExtractor={this._keyExtractor}
-            refreshControl={refreshControl}
-            renderItem={this.renderItem}
-          />
-        </View>
+        {renderElement}
       </View>
     );
   }
