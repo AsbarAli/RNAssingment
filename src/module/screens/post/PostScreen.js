@@ -1,11 +1,13 @@
 // @flow
 import React from 'react';
-import {View, Text, Button} from 'react-native';
-// import PropTypes from 'prop-types';
+import {View, Button, Text} from 'react-native';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import type {Element as ReactElement} from 'react';
 
 import styles from './Post.styles';
 import {navigateToPostDetails} from '../../../navigation/root/Actions';
+import {getAllPosts, getAllUsers} from '../../../shared/actions/PostActions';
 
 type PostProps = {};
 type PostState = {};
@@ -19,6 +21,8 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
 
   handleButtonPress = () => {
     navigateToPostDetails({id: 1});
+    this.props.dispatch(getAllPosts());
+    this.props.dispatch(getAllUsers());
   }
 
   renderContent = (): ReactElement<any> => {
@@ -44,4 +48,10 @@ PostScreen.propTypes = {};
 
 PostScreen.defaultProps = {};
 
-export default PostScreen;
+const mapStateToProps = (state: any, ownProps: PostProps) => {
+  return {
+    // TODO: Map additional props here
+  };
+};
+
+export default connect(mapStateToProps)(PostScreen);
