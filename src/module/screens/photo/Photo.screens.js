@@ -22,7 +22,7 @@ class PhotoScreen extends React.PureComponent<PhotoProps, PhotoState> {
       <View style={styles.container}>
         <Image
           source={{uri: 'https://via.placeholder.com/600/a7c272'}}
-          style={{width: '100%', height: '100%'}}
+          style={styles.imageContianer}
         />
       </View>
     );
