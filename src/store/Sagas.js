@@ -9,7 +9,7 @@ const forkedSagas = function* root(): Saga<void> {
 
   yield all([
     fork(createdPostSaga.watchGetAllPosts),
-    fork(createdPostSaga.watchGetAllUsers),
+    // fork(createdPostSaga.watchGetAllUsers),
   ]);
 };
 
