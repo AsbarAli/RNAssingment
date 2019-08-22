@@ -18,7 +18,7 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
     super(props);
   }
 
-  onPostClick = () => {
+  handlePost = () => {
     const {onPostClick, postDetail} = this.props;
     onPostClick(postDetail);
   }
