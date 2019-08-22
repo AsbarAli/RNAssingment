@@ -1,25 +1,38 @@
 // @flow
 import React from 'react';
 import {View, Text} from 'react-native';
-// import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import type {Element as ReactElement} from 'react';
 
-import styles from './PostDetails.styles';
+import styles from './PostDetail.styles';
 
-type PostDetailsProps = {};
-type PostDetailsState = {};
+type PostDetailProps = {};
+type PostDetailState = {};
 
-class PostDetailsScreen extends React.PureComponent<PostDetailsProps, PostDetailsState> {
+class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailState> {
   static defaultProps: any
 
-  constructor(props: PostDetailsProps) {
+  constructor(props: PostDetailProps) {
     super(props);
+  }
+
+  renderPostDetail = () => {
+    const {title, body} = this.props.navigation.state.params;
+    const upperCaseTitle = title.toUpperCase();
+
+    return (
+      <View>
+        <Text>{upperCaseTitle}</Text>
+        <Text>{body}</Text>
+      </View>
+    );
   }
 
   renderContent = (): ReactElement<any> => {
     return (
       <View style={styles.container}>
-        <Text>Post Details screen</Text>
+        {this.renderPostDetail()}
       </View>
     );
   }
@@ -31,8 +44,16 @@ class PostDetailsScreen extends React.PureComponent<PostDetailsProps, PostDetail
   }
 }
 
-PostDetailsScreen.propTypes = {};
+PostDetailScreen.propTypes = {
+  navigation: PropTypes.any.isRequired,
+};
 
-PostDetailsScreen.defaultProps = {};
+PostDetailScreen.defaultProps = {};
 
-export default PostDetailsScreen;
+const mapStateToProps = (state: any, ownProps: PostDetailProps) => {
+  return {
+    // TODO: Map additional props here
+  };
+};
+
+export default connect(mapStateToProps)(PostDetailScreen);
