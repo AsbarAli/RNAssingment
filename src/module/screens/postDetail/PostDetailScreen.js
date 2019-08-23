@@ -1,12 +1,13 @@
 // @flow
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import type {Element as ReactElement} from 'react';
 
 import styles from './PostDetail.styles';
 import {navigateToPhoto} from '../../../navigation/root/Actions';
+import PhotoListComponent from '../../components/photoListItem/PhotoListItem.component';
 
 type PostDetailProps = {};
 type PostDetailState = {};
@@ -22,6 +23,10 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     navigateToPhoto();
   }
 
+  handlePhotoClick = (photoImage) => {
+    navigateToPhoto(photoImage);
+  }
+
   renderPostDetail = () => {
     const {title, body} = this.props.navigation.state.params;
     const upperCaseTitle = title.toUpperCase();
@@ -34,12 +39,27 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     );
   }
 
-  renderGridLayout = () => {
+  renderItem = (photoItem) => {
     return (
-      <Button
-        onPress={this.handleThumbnail}
-        title="Go full"
+      <PhotoListComponent
+        item={photoItem.item}
+        onPhotoClick={this.handlePhotoClick}
       />
+    );
+  }
+
+  renderGridLayout = () => {
+    const {photoList} = this.props;
+
+    return (
+      <View>
+        <FlatList
+          data={photoList}
+          numColumns={3}
+          renderItem={this.renderItem}
+        />
+      </View>
+
     );
   }
 
@@ -61,13 +81,14 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
 
 PostDetailScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
+  photoList: PropTypes.any.isRequired,
 };
 
 PostDetailScreen.defaultProps = {};
 
 const mapStateToProps = (state: any, ownProps: PostDetailProps) => {
   return {
-    // TODO: Map additional props here
+    photoList: state.post.photoList,
   };
 };
 

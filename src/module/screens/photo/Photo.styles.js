@@ -6,9 +6,9 @@ const style = StyleSheet.create({
     flex: 1,
   },
   imageContainer: {
-    height: '100%',
-    width: '100%',
+    flex: 1,
   },
 });
 
 export default style;
+

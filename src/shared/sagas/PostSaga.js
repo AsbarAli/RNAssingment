@@ -5,11 +5,12 @@ import type {Saga} from 'redux-saga';
 import {GET_POSTS} from '../actions/Types';
 import Actions from '../actions/PostActions';
 import PostService from '../../api/PostService';
+import UserService from '../../api/UserService';
 
 export default () => {
   function* getAllPosts() {
     try {
-      const userList = yield call(PostService.getAllUsers);
+      const userList = yield call(UserService.getAllUsers);
       const postList = yield call(PostService.getAllPosts);
       yield put(Actions.getAllPostsSuccess({postList, userList}));
     } catch (error) {
@@ -17,25 +18,11 @@ export default () => {
     }
   }
 
-  // function* getAllUsers() {
-  //   try {
-  //     const results = yield call(PostService.getAllUsers);
-  //     yield put(Actions.getAllUsersSuccess(results));
-  //   } catch (error) {
-  //     yield put(Actions.getAllUsersFailure(error));
-  //   }
-  // }
-
   function* watchGetAllPosts(): Saga<void> {
     yield takeLatest(GET_POSTS, getAllPosts);
   }
 
-  // function* watchGetAllUsers(): Saga<void> {
-  //   yield takeLatest(GET_USERS, getAllUsers);
-  // }
-
   return {
     watchGetAllPosts,
-    // watchGetAllUsers,
   };
 };

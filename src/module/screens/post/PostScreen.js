@@ -8,6 +8,7 @@ import type {Element as ReactElement} from 'react';
 import {navigateToPostDetails} from '../../../navigation/root/Actions';
 import {getAllPosts} from '../../../shared/actions/PostActions';
 import PostListItemComponent from '../../components/postListItem/PostListItem';
+import {getAllAlbums} from '../../../shared/actions/album/AlbumAction';
 
 import styles from './Post.styles';
 import {ALL_100_POSTS} from '../../../shared/strings';
@@ -21,11 +22,12 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
 
   constructor(props: PostProps) {
     super(props);
-    this.props.dispatch(getAllPosts());
+    props.dispatch(getAllPosts());
   }
 
   handlePost = (postDetail) => {
     navigateToPostDetails(postDetail);
+    this.props.dispatch(getAllAlbums(postDetail.userId));
   }
 
   handlePullRefresh = () => {

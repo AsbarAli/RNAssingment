@@ -3,20 +3,17 @@ import {
   GET_POSTS,
   GET_POSTS_FAILURE,
   GET_POSTS_SUCCESS,
-
-  // GET_USERS,
-  // GET_USERS_FAILURE,
-  // GET_USERS_SUCCESS,
 } from '../../shared/actions//Types';
+import {GET_ALBUMS, GET_ALBUMS_FAILURE, GET_ALBUMS_SUCCESS} from '../../shared/actions/album/Types';
 
 export const POST_INITIAL_STATE = {
   postList: null,
   getPostListLoading: false,
   getPostListError: null,
 
-  // userList: null,
-  // getUsersLoading: false,
-  // getUsersError: null,
+  photoList: null,
+  getAlbumListLoading: false,
+  getAlbumListError: null,
 };
 
 export const getPostList = (state: any = POST_INITIAL_STATE) => {
@@ -59,39 +56,43 @@ export const getPostListFailure = (state: any = POST_INITIAL_STATE, {error}: any
   });
 };
 
-// export const getUserList = (state: any = POST_INITIAL_STATE) => {
-//   return ({
-//     ...state,
-//     getUsersLoading: true,
-//     getUsersError: null,
-//   });
-// };
+export const getAlbumList = (state: any = POST_INITIAL_STATE) => {
+  return ({
+    ...state,
+    getAlbumListLoading: true,
+    getAlbumListError: null,
+  });
+};
 
-// export const getUserListSuccess = (state: any = POST_INITIAL_STATE, {payload}: any) => {
-//   return ({
-//     ...state,
-//     userList: payload,
-//     getUsersLoading: false,
-//     getUsersError: null,
-//   });
-// };
+export const getAlbumListSuccess = (state: any = POST_INITIAL_STATE, {payload}: any) => {
+  const albumListForCurrentUser = payload.albumList.filter((album) => album.userId == payload.userId);
+  const firstAlbum = albumListForCurrentUser[0];
+  const photoList = payload.photoList.filter((photo) => photo.albumId == firstAlbum.id);
 
-// export const getUserListFailure = (state: any = POST_INITIAL_STATE, {error}: any) => {
-//   return ({
-//     ...state,
-//     getUsersLoading: false,
-//     getUsersError: error,
-//   });
-// };
+  return ({
+    ...state,
+    photoList: photoList,
+    getPostListLoading: false,
+    getPostListError: null,
+  });
+};
+
+export const getAlbumListFailure = (state: any = POST_INITIAL_STATE, {error}: any) => {
+  return ({
+    ...state,
+    getPostListLoading: false,
+    getPostListError: error,
+  });
+};
 
 const ACTION_HANDLERS = {
   [GET_POSTS]: getPostList,
   [GET_POSTS_FAILURE]: getPostListFailure,
   [GET_POSTS_SUCCESS]: getPostListSuccess,
 
-  // [GET_USERS]: getUserList,
-  // [GET_USERS_FAILURE]: getUserListFailure,
-  // [GET_USERS_SUCCESS]: getUserListSuccess,
+  [GET_ALBUMS]: getAlbumList,
+  [GET_ALBUMS_FAILURE]: getAlbumListFailure,
+  [GET_ALBUMS_SUCCESS]: getAlbumListSuccess,
 };
 
 export default createReducer(POST_INITIAL_STATE, ACTION_HANDLERS);

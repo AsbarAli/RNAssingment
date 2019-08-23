@@ -18,11 +18,13 @@ class PhotoScreen extends React.PureComponent<PhotoProps, PhotoState> {
   }
 
   renderContent = (): ReactElement<any> => {
+    const {navigation: {state: {params}}} = this.props;
+
     return (
       <View style={styles.container}>
         <Image
-          source={{uri: 'https://via.placeholder.com/600/a7c272'}}
-          style={styles.imageContianer}
+          source={{uri: params}}
+          style={styles.imageContainer}
         />
       </View>
     );
@@ -35,7 +37,9 @@ class PhotoScreen extends React.PureComponent<PhotoProps, PhotoState> {
   }
 }
 
-PhotoScreen.propTypes = {};
+PhotoScreen.propTypes = {
+  navigation: PropTypes.any.isRequired,
+};
 
 PhotoScreen.defaultProps = {};
 
