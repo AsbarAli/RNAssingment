@@ -31,7 +31,7 @@ class PhotoListItemComponent extends React.PureComponent<PhotoListItemProps, Pho
           onPress={this.handlePhotoPress}
         >
           <Image
-            source={{uri: item.url}}
+            source={{uri: item.thumbnailUrl}}
             style={styles.imageSize}
           />
         </TouchableOpacity>
