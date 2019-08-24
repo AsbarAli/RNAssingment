@@ -1,3 +1,4 @@
+/* eslint-disable react/static-property-placement */
 // @flow
 import React from 'react';
 import {View, Image} from 'react-native';

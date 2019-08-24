@@ -1,3 +1,4 @@
+/* eslint-disable react/static-property-placement */
 // @flow
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
@@ -47,7 +48,10 @@ class PhotoListItemComponent extends React.PureComponent<PhotoListItemProps, Pho
 }
 
 PhotoListItemComponent.propTypes = {
-  item: PropTypes.any.isRequired,
+  item: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    thumbnailUrl: PropTypes.string.isRequired,
+  }).isRequired,
   onPhotoClick: PropTypes.func.isRequired,
 };
 

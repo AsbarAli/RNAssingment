@@ -10,14 +10,14 @@ import sagas from './Sagas';
 const reactotronStoreAction = Config.ENABLE_REACTOTRON && Config.ENABLE_REACTOTRON == 'true' ?
   require('../../config/reactotron/reactotron.config').default : null;
 
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
+
+export const middleware = [
+  sagaMiddleware,
+];
+
 export default (): Store => {
-  // create the saga middleware
-  const sagaMiddleware = createSagaMiddleware();
-
-  const middleware = [
-    sagaMiddleware,
-  ];
-
   // To get Reactotron working with redux, we need to use Reactotron.createStore instead of Redux createStore.
   // We are only using the Reactotron.createStore on development environment.
   const store = (reactotronStoreAction || createStore)(Reducers, INITIAL_STATE, applyMiddleware(...middleware));
