@@ -25,6 +25,7 @@ class PhotoListItemComponent extends React.PureComponent<PhotoListItemProps, Pho
 
   renderContent = (): ReactElement<any> => {
     const {item} = this.props;
+    const thumbnailUrl = {uri: item.thumbnailUrl};
 
     return (
       <View style={styles.container}>
@@ -32,7 +33,7 @@ class PhotoListItemComponent extends React.PureComponent<PhotoListItemProps, Pho
           onPress={this.handlePhotoPress}
         >
           <Image
-            source={{uri: item.thumbnailUrl}}
+            source={thumbnailUrl}
             style={styles.imageSize}
           />
         </TouchableOpacity>
