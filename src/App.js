@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 
 import RootNavigation from '../src/navigation/root';
-import {postActions} from './storage/realm';
 import Config from 'react-native-config';
 import {Provider} from 'react-redux';
 import {Store} from 'redux';
@@ -26,11 +25,6 @@ setBaseURL(Config.BASE_URL);
 const store: Store = configureStore();
 
 const App = () => {
-  console.log('Config.BASE_URL', Config.BASE_URL);
-  const post = {id: 1, title: 'title', description: 'description'};
-  postActions.createPosts(post);
-  console.log('postActions.getPosts()', postActions.getPosts());
-
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.container}>

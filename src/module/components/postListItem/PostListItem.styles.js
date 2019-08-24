@@ -31,11 +31,15 @@ const style = StyleSheet.create({
     width: 50,
   },
   titleText: {
+    color: colors.coolBlue,
+    fontFamily: 'Arial',
     fontSize: metrics.fontSize.medium,
+    fontWeight: 'bold',
     paddingBottom: 5,
   },
   userNameText: {
     fontSize: metrics.fontSize.medium,
+    fontWeight: 'bold',
   },
   userWebsite: {
     color: colors.blue,

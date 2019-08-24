@@ -3,4 +3,5 @@ export default {
   blue: 'rgb(50,127,187)',
   coolWhite: 'rgb(244,244,244)',
   coolBlue: '#0086C6',
+  orange: 'rgb(255,88,48)',
 };

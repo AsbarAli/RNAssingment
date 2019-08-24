@@ -9,6 +9,7 @@ import type {Element as ReactElement} from 'react';
 import styles from './PostDetail.styles';
 import {navigateToPhoto} from '../../../navigation/root/Actions';
 import PhotoListComponent from '../../components/photoListItem/PhotoListItem.component';
+import {FIRST_PHOTO_ALBUM} from '../../../shared/strings';
 
 type PostDetailProps = {};
 type PostDetailState = {};
@@ -33,9 +34,11 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     const upperCaseTitle = title.toUpperCase();
 
     return (
-      <View>
-        <Text>{upperCaseTitle}</Text>
-        <Text>{body}</Text>
+      <View style={styles.postDetail}>
+        <Text style={styles.title}>{upperCaseTitle}</Text>
+        <View style={styles.bodyWrapper}>
+          <Text styel={styles.body}>{body}</Text>
+        </View>
       </View>
     );
   }
@@ -49,13 +52,20 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     );
   }
 
+  _keyExtractor = (item, index) => index.toString();
+
   renderGridLayout = () => {
     const {photoList} = this.props;
+    const {userDetail: {name}} = this.props.navigation.state.params;
 
     return (
       <View>
+        <View style={styles.photoAlbumWrapper}>
+          <Text style={styles.photoAlbumName}>{name}{FIRST_PHOTO_ALBUM}</Text>
+        </View>
         <FlatList
           data={photoList}
+          keyExtractor={this._keyExtractor}
           numColumns={3}
           renderItem={this.renderItem}
         />
@@ -82,10 +92,12 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
 
 PostDetailScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
-  photoList: PropTypes.any.isRequired,
+  photoList: PropTypes.any,
 };
 
-PostDetailScreen.defaultProps = {};
+PostDetailScreen.defaultProps = {
+  photoList: null,
+};
 
 const mapStateToProps = (state: any, ownProps: PostDetailProps) => {
   return {

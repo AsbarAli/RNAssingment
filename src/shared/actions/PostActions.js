@@ -6,6 +6,7 @@ import {
   GET_USERS,
   GET_USERS_FAILURE,
   GET_USERS_SUCCESS,
+  UPDATE_POST,
 } from './Types';
 
 export const getAllPosts = () => {
@@ -45,6 +46,13 @@ export const getAllUsersFailure = (error) => {
   return {
     type: GET_USERS_FAILURE,
     payload: error,
+  };
+};
+
+export const updateAllPosts = (post) => {
+  return {
+    type: UPDATE_POST,
+    payload: post,
   };
 };
 

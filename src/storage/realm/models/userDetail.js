@@ -1,24 +1,22 @@
-import UserDetail from './userDetail';
-
 // @flow
 /**
- * Post Realm model
+ * User Detail Realm model
  */
-export default class Post {
+export default class UserDetail {
   /**
    * Getter for the class name
    * @return {String} Class name
    */
   static get() {
-    return Post.schema.name;
+    return UserDetail.schema.name;
   }
 
   /**
    * Gets the model primary key
-   * @return {String} Primary key of the Post model
+   * @return {String} Primary key of the UserDetail model
    */
   static primaryKey() {
-    return Post.schema.primaryKey;
+    return UserDetail.schema.primaryKey;
   }
 
   /**
@@ -26,23 +24,21 @@ export default class Post {
    * @type {Object}
    */
   static schema = {
-    name: 'Post',
+    name: 'UserDetail',
     primaryKey: 'id',
 
     properties: {
       id: 'int',
-      userId: 'int',
-      title: 'string',
-      body: 'string',
-      userDetail: UserDetail.get(),
+      name: 'string',
+      website: 'string',
     },
   }
 }
 
 /**
- * Post model definition
+ * UserDetail model definition
  */
-export type PostTypeInterface = {
+export type UserDetailTypeInterface = {
   id: number,
   title: string,
   description: string,

@@ -7,13 +7,14 @@ import PropTypes from 'prop-types';
 import type {Element as ReactElement} from 'react';
 
 import {navigateToPostDetails} from '../../../navigation/root/Actions';
-import {getAllPosts} from '../../../shared/actions/PostActions';
+import {getAllPosts, updateAllPosts} from '../../../shared/actions/PostActions';
 import PostListItemComponent from '../../components/postListItem/PostListItem';
 import {getAllAlbums} from '../../../shared/actions/album/AlbumAction';
 
 import styles from './Post.styles';
 import {ALL_100_POSTS} from '../../../shared/strings';
 import colors from '../../../themes/colors';
+import {postTimeLineActions} from '../../../storage/realm';
 
 type PostProps = {};
 type PostState = {};
@@ -23,7 +24,23 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
 
   constructor(props: PostProps) {
     super(props);
-    props.dispatch(getAllPosts());
+    const posts = postTimeLineActions.getPostTimeLine();
+    posts && posts[0] ? props.dispatch(updateAllPosts(posts[0].post)) : props.dispatch(getAllPosts());
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.resolveSeed(prevProps);
+  }
+
+  resolveSeed = (prevProps) => {
+    const {postList} = this.props;
+    if (postList) {
+      const postTimeLine = {
+        id: 1,
+        post: postList,
+      };
+      postTimeLineActions.createPostTimeLine(postTimeLine);
+    }
   }
 
   handlePost = (postDetail) => {
@@ -36,12 +53,12 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
   }
 
   renderItem = (listItem) => {
-    const {item: {post}} = listItem;
+    const {item} = listItem;
 
     return (
       <PostListItemComponent
         onPostClick={this.handlePost}
-        postDetail={post}
+        postDetail={item}
       />
     );
   }
@@ -112,7 +129,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
 PostScreen.propTypes = {
   dispatch: PropTypes.any.isRequired,
   getPostListLoading: PropTypes.bool.isRequired,
-  postList: PropTypes.array,
+  postList: PropTypes.any,
 };
 
 PostScreen.defaultProps = {

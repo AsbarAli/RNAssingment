@@ -12,12 +12,18 @@ const style = StyleSheet.create({
     flex: 11,
   },
   headerText: {
+    color: colors.orange,
+    flex: 1,
     fontSize: metrics.fontSize.large,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   headerWrapper: {
     alignItems: 'center',
+    backgroundColor: colors.white,
     flex: 1,
     justifyContent: 'center',
+    padding: 10,
   },
   loadingLabel: {
     alignSelf: 'center',
