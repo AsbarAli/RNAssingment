@@ -44,6 +44,5 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 * Thanks [Facebook](https://github.com/facebook) for [React](https://github.com/facebook/react/), [React Native](https://github.com/facebook/react-native)
 * Thanks [React Community](https://github.com/reactjs) for [react-redux](https://github.com/reactjs/react-redux)
 * Thanks [Realm](https://realm.io/) for the awesome library.
-* Thanks [Fastlane](https://fastlane.tools/) for the awesome deployment tool
 * Thanks to [PurpleBooth's gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) for the template of this README
 * Thanks for the [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
