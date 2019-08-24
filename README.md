@@ -16,7 +16,7 @@ TODO:
 Setup your development environment to support [Android](https://developer.android.com/topic/instant-apps/getting-started/setup.html) and [iOS](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/Setup/Setup.html)
 
 ### Environment Variables
-We use [React Native Config](https://github.com/luggit/react-native-config) for environment variables management.
+Use [React Native Config](https://github.com/luggit/react-native-config) for environment variables management.
 
 ### Coding style
 Respect the Lint rules defined in .eslintrc and the general directory structure.
