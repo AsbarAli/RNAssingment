@@ -1,4 +1,5 @@
 import {createReducer} from 'reduxsauce';
+
 import {
   GET_POSTS,
   GET_POSTS_FAILURE,
@@ -6,6 +7,7 @@ import {
   UPDATE_POST,
 } from '../../shared/actions//Types';
 import {GET_ALBUMS, GET_ALBUMS_FAILURE, GET_ALBUMS_SUCCESS} from '../../shared/actions/album/Types';
+import {updatePostList, updateAlbumList} from '../../service/PostService';
 
 export const POST_INITIAL_STATE = {
   postList: null,
@@ -26,24 +28,9 @@ export const getPostList = (state: any = POST_INITIAL_STATE) => {
 };
 
 export const getPostListSuccess = (state: any = POST_INITIAL_STATE, {payload}: any) => {
-  const formattedUserList = {};
-
-  payload.userList.forEach((element) => {
-    formattedUserList[element.id] = element;
-  });
-
-  const postList = payload.postList.map((post) => {
-    let postObject = {};
-    const currentUserId = post.userId;
-    postObject = post;
-    postObject.userDetail = formattedUserList[currentUserId.toString()];
-
-    return postObject;
-  });
-
   return ({
     ...state,
-    postList: postList,
+    postList: updatePostList(payload),
     getPostListLoading: false,
     getPostListError: null,
   });
@@ -66,13 +53,9 @@ export const getAlbumList = (state: any = POST_INITIAL_STATE) => {
 };
 
 export const getAlbumListSuccess = (state: any = POST_INITIAL_STATE, {payload}: any) => {
-  const albumListForCurrentUser = payload.albumList.filter((album) => album.userId == payload.userId);
-  const firstAlbum = albumListForCurrentUser[0];
-  const photoList = payload.photoList.filter((photo) => photo.albumId == firstAlbum.id);
-
   return ({
     ...state,
-    photoList: photoList,
+    photoList: updateAlbumList(payload),
     getPostListLoading: false,
     getPostListError: null,
   });
