@@ -1,5 +1,11 @@
-# RNAssignment for 99x
-TODO:
+# RNAssignment for 99XT
+<br />
+
+### Simple React Native app for the initial screening. 
+For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). since this is the screening interview process, I thought it would be a good idea to add those latest technologies.
+
+
+<br />
 
 ![](https://drive.google.com/uc?id=1bkzFPTzCyzqdp51cxKxhcRLPfRVLAfXN)
 
@@ -33,6 +39,7 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 
 ## Built With
 * [React Native](https://facebook.github.io/react-native/) - The framework used
+* [React Navigation](https://reactnavigation.org/) - Navigation (V3)
 * [react-redux](https://github.com/reactjs/react-redux) - Data store
 * [Realm](https://realm.io/) - Mobile database
 * [React Native Config](https://github.com/luggit/react-native-config) - Environment variables management
