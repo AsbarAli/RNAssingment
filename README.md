@@ -35,11 +35,14 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 * For iOS, `react-native run-ios`
 
 ## Testing
-* Unit Testing - [Jest](https://jestjs.io/docs/en/tutorial-react-native)
-* Component Testing - [Enzyme](https://airbnb.io/enzyme/docs/guides/react-native.html) and [Jest](https://jestjs.io/docs/en/tutorial-react-native)
+* Unit Tests - [Jest](https://jestjs.io/docs/en/tutorial-react-native)
+* Component Tests - [Enzyme](https://airbnb.io/enzyme/docs/guides/react-native.html) and [Jest](https://jestjs.io/docs/en/tutorial-react-native)
+* End-to-End Tests: [Detox](https://github.com/wix/Detox)
 
 ## Running the tests
+
 * `yarn test` or `npm run test`
+* `detox build` and `detox test` for end to end tests
 
 ## Built With
 * [React Native](https://facebook.github.io/react-native/) - The framework used
@@ -53,7 +56,6 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 
 ## TODO
 - [ ] Write More tests
-- [ ] Write end to end testing with Detox
 
 ## Acknowledgments
 * Thanks [Facebook](https://github.com/facebook) for [React](https://github.com/facebook/react/), [React Native](https://github.com/facebook/react-native)

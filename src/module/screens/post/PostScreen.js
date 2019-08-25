@@ -12,7 +12,7 @@ import PostListItemComponent from '../../components/postListItem/PostListItem';
 import {getAllAlbums} from '../../../shared/actions/album/AlbumAction';
 
 import styles from './Post.styles';
-import {ALL_100_POSTS} from '../../../shared/strings';
+import {ALL_100_POSTS, LOADING_FROM_SERVER} from '../../../shared/strings';
 import colors from '../../../themes/colors';
 import {postTimeLineActions} from '../../../storage/realm';
 
@@ -67,7 +67,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
     );
   }
 
-  _keyExtractor = (item, index) => index.toString();
+  _keyExtractor = (item, index) => item.id.toString();
 
   renderSimpleLoadingIndicator = () => {
     return (
@@ -76,7 +76,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
           color={colors.coolBlue}
           size="large"
         />
-        <Text style={styles.loadingLabel}>Loading from server..</Text>
+        <Text style={styles.loadingLabel}>{LOADING_FROM_SERVER}</Text>
       </View>
     );
   }
@@ -98,6 +98,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
           keyExtractor={this._keyExtractor}
           refreshControl={refreshControl}
           renderItem={this.renderItem}
+          testID="postFlatList"
         />
       </View>
     );
@@ -113,7 +114,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
         <View style={styles.headerWrapper}>
           <Text
             style={styles.headerText}
-            testID="welcome"
+            testID="100posts"
           >
             {ALL_100_POSTS}
           </Text>

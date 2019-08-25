@@ -5,8 +5,8 @@ import colors from '../../../themes/colors';
 
 const style = StyleSheet.create({
   body: {
-    fontSize: metrics.fontSize.small,
-    textAlign: 'center',
+    fontSize: metrics.fontSize.medium,
+    // textAlign: 'center',
   },
   bodyWrapper: {
     margin: 10,

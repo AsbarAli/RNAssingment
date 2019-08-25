@@ -40,9 +40,19 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
 
     return (
       <View style={styles.postDetail}>
-        <Text style={styles.title}>{upperCaseTitle}</Text>
+        <Text
+          style={styles.title}
+          testID="title"
+        >
+          {upperCaseTitle}
+        </Text>
         <View style={styles.bodyWrapper}>
-          <Text styel={styles.body}>{body}</Text>
+          <Text
+            style={styles.body}
+            testID="body"
+          >
+            {body}
+          </Text>
         </View>
       </View>
     );
@@ -66,13 +76,19 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     return (
       <View>
         <View style={styles.photoAlbumWrapper}>
-          <Text style={styles.photoAlbumName}>{name}{FIRST_PHOTO_ALBUM}</Text>
+          <Text
+            style={styles.photoAlbumName}
+            testID="photoAlbumTitle"
+          >
+            {name}{FIRST_PHOTO_ALBUM}
+          </Text>
         </View>
         <FlatList
           data={photoList}
           keyExtractor={this._keyExtractor}
           numColumns={3}
           renderItem={this.renderItem}
+          testID="photoFlatList"
         />
       </View>
 

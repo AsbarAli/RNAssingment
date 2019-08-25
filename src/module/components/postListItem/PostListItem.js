@@ -82,11 +82,15 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
   }
 
   renderContent = (): ReactElement<any> => {
+    const {postDetail: {title, id}} = this.props;
+    const testID = title + id;
+
     return (
       <View style={styles.container}>
         <TouchableOpacity
           onPress={this.handlePost}
           style={styles.postWrapper}
+          testID={testID}
         >
           {this.renderHeader()}
           {this.renderBody()}
@@ -105,6 +109,7 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
 PostListItemComponent.propTypes = {
   onPostClick: PropTypes.func.isRequired,
   postDetail: PropTypes.shape({
+    id: PropTypes.number,
     body: PropTypes.string,
     title: PropTypes.string,
     userDetail: PropTypes.shape({
