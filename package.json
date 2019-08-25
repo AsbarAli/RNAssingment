@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "test": "jest tests/**/*.spec.js",
+    "test": "jest __tests__/**/*.spec.js",
     "lint": "eslint *.js e2e/*.js tests/**/*.js"
   },
   "dependencies": {
@@ -46,7 +46,7 @@
   "jest": {
     "preset": "react-native",
     "setupFiles": [
-      "./tests/setup.js"
+      "./__tests__/setup.js"
     ]
   },
   "detox": {
