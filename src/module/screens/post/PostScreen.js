@@ -16,7 +16,11 @@ import {ALL_100_POSTS} from '../../../shared/strings';
 import colors from '../../../themes/colors';
 import {postTimeLineActions} from '../../../storage/realm';
 
-type PostProps = {};
+type PostProps = {
+  dispatch: Object,
+  getPostListLoading: boolean,
+  postList: null,
+};
 type PostState = {};
 
 class PostScreen extends React.PureComponent<PostProps, PostState> {

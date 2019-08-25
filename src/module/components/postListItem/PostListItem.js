@@ -7,7 +7,10 @@ import type {Element as ReactElement} from 'react';
 
 import styles from './PostListItem.styles';
 
-type PostListItemProps = {};
+type PostListItemProps = {
+  postDetail: Object,
+  onPostClick: Function
+};
 type PostListItemState = {};
 
 const anonymousProfile = 'https://cdn150.picsart.com/upscale-245339439045212.png?r1024x1024';

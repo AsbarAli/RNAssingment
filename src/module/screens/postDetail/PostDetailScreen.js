@@ -9,9 +9,14 @@ import type {Element as ReactElement} from 'react';
 import styles from './PostDetail.styles';
 import {navigateToPhoto} from '../../../navigation/root/Actions';
 import PhotoListComponent from '../../components/photoListItem/PhotoListItem.component';
-import {FIRST_PHOTO_ALBUM} from '../../../shared/strings';
+import {FIRST_PHOTO_ALBUM, INTERNET_CONNECTION_IS_REQUIRED, LOADING_PHOTOES} from '../../../shared/strings';
 
-type PostDetailProps = {};
+type PostDetailProps = {
+  navigation: Object,
+  photoList: Object,
+  getAlbumListError: Object,
+  getAlbumListLoading: boolean,
+};
 type PostDetailState = {};
 
 class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailState> {
@@ -74,11 +79,26 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     );
   }
 
+  renderBottomContent = () => {
+    const {getAlbumListLoading, getAlbumListError} = this.props;
+    let content = null;
+
+    if (getAlbumListLoading) {
+      content = (<Text style={styles.loading}>{LOADING_PHOTOES}</Text>);
+    } else if (getAlbumListError) {
+      content = (<Text style={styles.errorMessage}>{INTERNET_CONNECTION_IS_REQUIRED}</Text>);
+    } else {
+      content = this.renderGridLayout();
+    }
+
+    return content;
+  }
+
   renderContent = (): ReactElement<any> => {
     return (
       <View style={styles.container}>
         {this.renderPostDetail()}
-        {this.renderGridLayout()}
+        {this.renderBottomContent()}
       </View>
     );
   }
@@ -91,17 +111,22 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
 }
 
 PostDetailScreen.propTypes = {
+  getAlbumListError: PropTypes.any,
+  getAlbumListLoading: PropTypes.bool.isRequired,
   navigation: PropTypes.any.isRequired,
   photoList: PropTypes.any,
 };
 
 PostDetailScreen.defaultProps = {
+  getAlbumListError: null,
   photoList: null,
 };
 
 const mapStateToProps = (state: any, ownProps: PostDetailProps) => {
   return {
     photoList: state.post.photoList,
+    getAlbumListLoading: state.post.getAlbumListLoading,
+    getAlbumListError: state.post.getAlbumListError,
   };
 };
 

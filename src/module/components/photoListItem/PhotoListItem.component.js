@@ -7,7 +7,10 @@ import type {Element as ReactElement} from 'react';
 
 import styles from './PhotoListItem.styles';
 
-type PhotoListItemProps = {};
+type PhotoListItemProps = {
+  item: Object,
+  onPhotoClick: Function,
+};
 type PhotoListItemState = {};
 
 class PhotoListItemComponent extends React.PureComponent<PhotoListItemProps, PhotoListItemState> {

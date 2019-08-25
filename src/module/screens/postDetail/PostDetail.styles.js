@@ -14,6 +14,16 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
   },
+  errorMessage: {
+    color: colors.orange,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  loading: {
+    color: colors.orange,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   photoAlbumName: {
     fontSize: metrics.fontSize.medium,
     fontWeight: 'bold',

@@ -8,7 +8,9 @@ import type {Element as ReactElement} from 'react';
 
 import styles from './Photo.styles';
 
-type PhotoProps = {};
+type PhotoProps = {
+  navigation: Object,
+};
 type PhotoState = {};
 
 class PhotoScreen extends React.PureComponent<PhotoProps, PhotoState> {

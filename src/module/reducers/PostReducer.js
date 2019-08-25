@@ -56,16 +56,16 @@ export const getAlbumListSuccess = (state: any = POST_INITIAL_STATE, {payload}: 
   return ({
     ...state,
     photoList: updateAlbumList(payload),
-    getPostListLoading: false,
-    getPostListError: null,
+    getAlbumListLoading: false,
+    getAlbumListError: null,
   });
 };
 
-export const getAlbumListFailure = (state: any = POST_INITIAL_STATE, {error}: any) => {
+export const getAlbumListFailure = (state: any = POST_INITIAL_STATE, error: any) => {
   return ({
     ...state,
-    getPostListLoading: false,
-    getPostListError: error,
+    getAlbumListLoading: false,
+    getAlbumListError: error,
   });
 };
 
