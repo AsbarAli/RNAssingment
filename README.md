@@ -2,8 +2,8 @@
 
 <br />
 
-### Simple React Native app for the initial screening. 
-For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). Since this is the screening interview process, I thought it would be better to add those latest technologies as well.
+### Simple React Native app for the initial screening
+For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). Since this is the part of screening interview, I thought it would be better to add those latest technologies as well.
 
 <br />
 
@@ -48,7 +48,7 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 * [Realm](https://realm.io/) - Mobile database
 * [React Native Config](https://github.com/luggit/react-native-config) - Environment variables management
 
-## Authors
+## Author
 * **Asbar Ali** - [Asbar](https://github.com/AsbarAli/)
 
 ## TODO
