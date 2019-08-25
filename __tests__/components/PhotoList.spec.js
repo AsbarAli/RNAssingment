@@ -52,13 +52,7 @@ describe('Photo List Item', () => {
       it('it should not throw warning', () => {
         const mockOnPress = jest.fn();
 
-        const expectedPropTypes = {
-          item: {
-            thumbnailUrl: 'http://something',
-            url: 'http://blahblab',
-          },
-          onPhotoClick: mockOnPress,
-        };
+        const expectedPropTypes = {item: {thumbnailUrl: 'http://something', url: 'http://blahblab'}, onPhotoClick: mockOnPress};
 
         const propsError = checkProps(PhotoListItem, expectedPropTypes);
         expect(propsError).toBeUndefined();

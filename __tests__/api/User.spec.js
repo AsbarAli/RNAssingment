@@ -5,14 +5,7 @@ setBaseURL('http://baseURL');
 
 describe('test `UserService`', () => {
   it('Fetches User data from server when server returns a successful response', async () => {
-    const mockSuccessResponse = [
-      {
-        id: 1,
-        name: 'Leanne Graham',
-        website: 'hildegard.org',
-      },
-    ];
-
+    const mockSuccessResponse = [{id: 1, name: 'Leanne Graham', website: 'hildegard.org'}];
     const mockJsonPromise = Promise.resolve(mockSuccessResponse);
 
     const mockFetchPromise = Promise.resolve({

@@ -8,15 +8,7 @@ describe('Photo List Item', () => {
   describe('Rendering', () => {
     it('should match to snapshot', () => {
       const mockOnPress = jest.fn();
-
-      const postDetail = {
-        body: 'body',
-        title: 'title',
-        userDetail: {
-          name: 'name',
-          website: 'website',
-        },
-      };
+      const postDetail = {body: 'body', title: 'title', userDetail: {name: 'name', website: 'website'}};
 
       const photoListItem = shallow(
         <PostListItem
@@ -35,14 +27,7 @@ describe('Photo List Item', () => {
       // Instance of component
       let instance;
 
-      const postDetail = {
-        body: 'body',
-        title: 'title',
-        userDetail: {
-          name: 'name',
-          website: 'website',
-        },
-      };
+      const postDetail = {body: 'body', title: 'title', userDetail: {name: 'name', website: 'website'}};
 
       // preparing a reusable shallow rendered instance
       beforeEach(() => {
