@@ -3,7 +3,7 @@
 <br />
 
 ### Simple React Native app for the initial screening
-For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). Since this is the part of screening interview, I thought it would be better to add those latest technologies as well.
+**Note:** For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). Since this is the part of screening interview, I thought it would be better to add those latest technologies as well.
 
 <br />
 
