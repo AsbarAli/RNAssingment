@@ -16,11 +16,11 @@ describe('test `PostService`', () => {
 
     // Since we await the call to getAllPosts() in PostService.js,
     // we Promise.resolve it in the test to a mockSuccessResponse object.
-    const mockJsonPromise = Promise.resolve(mockSuccessResponse); // 2
+    const mockJsonPromise = Promise.resolve(mockSuccessResponse);
 
     // Since we are awaiting the call to fetch in Rest Service and expecting the returned object to contain a json function,
     // which returns another Promise, we Promise.resolve to an object containing such a json function.
-    const mockFetchPromise = Promise.resolve({// 3
+    const mockFetchPromise = Promise.resolve({
       json: () => mockJsonPromise,
     });
 
