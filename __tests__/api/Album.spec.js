@@ -5,13 +5,7 @@ setBaseURL('http://baseURL');
 
 describe('test `AlbumService`', () => {
   it('Fetches album data from server when server returns a successful response', async () => {
-    const mockSuccessResponse = [
-      {
-        id: 1,
-        userId: 1,
-        title: 'quidem molestiae enim',
-      },
-    ];
+    const mockSuccessResponse = [{id: 1, userId: 1, title: 'quidem molestiae enim'}];
 
     const mockJsonPromise = Promise.resolve(mockSuccessResponse);
 
