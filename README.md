@@ -4,6 +4,7 @@
 For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). Since this is the screening interview process, I thought it would be a good idea to add those latest technologies.
 
 <br />
+
 ![](https://drive.google.com/uc?id=1bkzFPTzCyzqdp51cxKxhcRLPfRVLAfXN)
 
 
