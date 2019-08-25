@@ -37,7 +37,7 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 ## Testing
 * Unit Tests - [Jest](https://jestjs.io/docs/en/tutorial-react-native)
 * Component Tests - [Enzyme](https://airbnb.io/enzyme/docs/guides/react-native.html) and [Jest](https://jestjs.io/docs/en/tutorial-react-native)
-* End-to-End Tests: [Detox](https://github.com/wix/Detox)
+* End-to-End Tests - [Detox](https://github.com/wix/Detox)
 
 ## Running the tests
 
