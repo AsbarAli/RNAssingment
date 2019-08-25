@@ -27,7 +27,7 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
     onPostClick(postDetail);
   }
 
-  renderProfile = () => {
+  renderProfile = (): ReactElement<any> => {
     return (
       <Image
         source={{uri: anonymousProfile}}
@@ -36,7 +36,7 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
     );
   }
 
-  renderProfileDetail = () => {
+  renderProfileDetail = (): ReactElement<any> => {
     const {userDetail} = this.props.postDetail;
 
     return (
@@ -51,7 +51,7 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
     );
   }
 
-  renderBody = () => {
+  renderBody = (): ReactElement<any> => {
     const {title, body} = this.props.postDetail;
 
     return (
@@ -72,7 +72,7 @@ class PostListItemComponent extends React.PureComponent<PostListItemProps, PostL
     );
   }
 
-  renderHeader = () => {
+  renderHeader = (): ReactElement<any> => {
     return (
       <View style={styles.headerWrapper}>
         {this.renderProfile()}

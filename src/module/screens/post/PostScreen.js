@@ -69,7 +69,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
 
   _keyExtractor = (item, index) => item.id.toString();
 
-  renderSimpleLoadingIndicator = () => {
+  renderSimpleLoadingIndicator = (): ReactElement<any> => {
     return (
       <View style={styles.loadingWrapperSmall}>
         <ActivityIndicator
@@ -81,7 +81,7 @@ class PostScreen extends React.PureComponent<PostProps, PostState> {
     );
   }
 
-  renderFlatList = () => {
+  renderFlatList = (): ReactElement<any> => {
     const refreshControl = (
       <RefreshControl
         colors={[colors.coolBlue]}

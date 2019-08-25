@@ -34,7 +34,7 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     navigateToPhoto(photoImage);
   }
 
-  renderPostDetail = () => {
+  renderPostDetail = (): ReactElement<any> => {
     const {title, body} = this.props.navigation.state.params;
     const upperCaseTitle = title.toUpperCase();
 
@@ -58,7 +58,7 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     );
   }
 
-  renderItem = (photoItem) => {
+  renderItem = (photoItem): ReactElement<any> => {
     return (
       <PhotoListComponent
         item={photoItem.item}
@@ -69,7 +69,7 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
 
   _keyExtractor = (item, index) => index.toString();
 
-  renderGridLayout = () => {
+  renderGridLayout = (): ReactElement<any> => {
     const {photoList} = this.props;
     const {userDetail: {name}} = this.props.navigation.state.params;
 
@@ -95,7 +95,7 @@ class PostDetailScreen extends React.PureComponent<PostDetailProps, PostDetailSt
     );
   }
 
-  renderBottomContent = () => {
+  renderBottomContent = (): ReactElement<any> => {
     const {getAlbumListLoading, getAlbumListError} = this.props;
     let content = null;
 
