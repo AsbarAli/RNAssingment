@@ -1,20 +1,24 @@
 export const updatePostList = (payload) => {
   const formattedUserList = {};
 
-  payload.userList.forEach((element) => {
-    formattedUserList[element.id] = element;
-  });
+  try {
+    payload.userList && payload.userList.forEach((element) => {
+      formattedUserList[element.id] = element;
+    });
 
-  const postList = payload.postList.map((post) => {
-    let postObject = {};
-    const currentUserId = post.userId;
-    postObject = post;
-    postObject.userDetail = formattedUserList[currentUserId.toString()];
+    const postList = payload.postList && payload.postList.map((post) => {
+      let postObject = {};
+      const currentUserId = post.userId;
+      postObject = post;
+      postObject.userDetail = formattedUserList[currentUserId.toString()];
 
-    return postObject;
-  });
+      return postObject;
+    });
 
-  return postList;
+    return postList;
+  } catch (error) {
+    console.log('error', error);
+  }
 };
 
 export const updateAlbumList = (payload) => {
