@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Photo screen Rendering should match to snap shot 1`] = `ShallowWrapper {}`;

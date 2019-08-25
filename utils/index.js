@@ -11,6 +11,13 @@ export const checkProps = (component, expectedProps) => {
   return propsError;
 };
 
+export const propsWithNavigation = (props: Object) => ({
+  navigation: {
+    navigate: jest.fn(),
+  },
+  ...props,
+});
+
 export const testStore = (INITIAL_STATE) => {
   const createdStoreMiddlewares = applyMiddleware(...middleware)(createStore);
 
