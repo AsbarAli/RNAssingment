@@ -1,12 +1,9 @@
 # RNAssignment for 99XT
 <br />
-
 ### Simple React Native app for the initial screening. 
-For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). since this is the screening interview process, I thought it would be a good idea to add those latest technologies.
-
+For this simple app, it is not necessarily have to use redux, redux saga or realm (Can do easily with asynStoarge). Since this is the screening interview process, I thought it would be a good idea to add those latest technologies.
 
 <br />
-
 ![](https://drive.google.com/uc?id=1bkzFPTzCyzqdp51cxKxhcRLPfRVLAfXN)
 
 
@@ -34,6 +31,10 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 * `react-native run-android` to run on Android.
 * For iOS, `react-native run-ios`
 
+## Testing
+* Unit Testing - [Jest](https://jestjs.io/docs/en/tutorial-react-native)
+* Component Testing - [Enzyme](https://airbnb.io/enzyme/docs/guides/react-native.html) and [Jest](https://jestjs.io/docs/en/tutorial-react-native)
+
 ## Running the tests
 * `yarn test` or `npm run test`
 
@@ -48,11 +49,13 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 * **Asbar Ali** - [Asbar](https://github.com/AsbarAli/)
 
 ## TODO
-- [ ] Write tests
+- [ ] Write More tests
+- [ ] Write end to end testing with Detox
 
 ## Acknowledgments
 * Thanks [Facebook](https://github.com/facebook) for [React](https://github.com/facebook/react/), [React Native](https://github.com/facebook/react-native)
 * Thanks [React Community](https://github.com/reactjs) for [react-redux](https://github.com/reactjs/react-redux)
 * Thanks [Realm](https://realm.io/) for the awesome library.
+* Thanks [Airbnb](https://airbnb.io/) for the [Enzyme](https://airbnb.io/enzyme/)
 * Thanks to [PurpleBooth's gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) for the template of this README
 * Thanks for the [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
