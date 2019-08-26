@@ -56,6 +56,7 @@ Respect the Lint rules defined in .eslintrc and the general directory structure.
 
 ## TODO
 - [ ] Write More tests
+- [ ] Setup Detox for Android
 
 ## Acknowledgments
 * Thanks [Facebook](https://github.com/facebook) for [React](https://github.com/facebook/react/), [React Native](https://github.com/facebook/react-native)
