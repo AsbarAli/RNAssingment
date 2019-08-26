@@ -28,7 +28,6 @@ export default (realmInstance: any): any => {
         try {
           realmInstance.write(() => {
             const createdPost: PostTimeLine = realmInstance.create(PostTimeLine.get(), postTimeLine, true);
-            console.log('createdPost', createdPost);
             resolve(createdPost);
           });
         } catch (err) {
