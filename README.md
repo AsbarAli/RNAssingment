@@ -1,5 +1,4 @@
-# RNAssignment for 99XT
-
+# RNAssignment
 <br />
 
 ### Simple React Native app for the initial screening
